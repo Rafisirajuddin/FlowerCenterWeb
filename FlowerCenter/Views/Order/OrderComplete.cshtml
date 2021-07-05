@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Order Complete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron main-content-wrap mb-0 section-ptb contact-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="search-error-wrapper">
+                    @if (ViewBag.OrderNo == "Reject")
+                    {
+                        <h2 class="text-danger" style="font-size: 40px;" >Order Cancel</h2>
+
+                        <p class="home-link">Your Payment through card not successfully done. </p>
+                        <a href="~/order/checkout" class="home-bacck-button">Try Again</a>
+                    }
+                    else
+                    {
+                        <h2 style="font-size: 40px;" >THANK YOU</h2>
+                        <h5 class="mb-1  font-weight-lighter" >Order Number </h5>
+                        <p class="mb-50 font-weight-bold">@ViewBag.OrderNo</p>
+                        <p class="home-link mb-0">Your Order was completed successfully</p>
+                        <p class="home-link" >@ViewBag.Status</p>
+                        <a href="~/home/index" class="home-bacck-button">Back to shop</a>
+                        <script>localStorage.clear();</script>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
