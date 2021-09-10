@@ -1,4 +1,10 @@
-﻿
+﻿<style>
+    @@media only screen and (max-width: 480px) {
+        .shop-item > a img {
+            height: 140px !important;
+        }
+    }
+</style>
 <div class="tab-content">
     <div class="tab-pane active" id="grid">
         <div class="shop-product-wrap">
@@ -85,14 +91,14 @@
                                 @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
                                 {
                                     <div class="price-box">
-                                        <span class="new-price ">RS @item.Price</span>
+                                        <span class="new-price ">AED @item.Price</span>
                                     </div>
                                 }
                                 else
                                 {
                                     <div class="price-box">
-                                        <span class="old-price ">RS @item.Price</span>
-                                        <span class="new-price ">RS @item.DiscountedPrice</span>
+                                        <span class="old-price ">AED @item.Price</span>
+                                        <span class="new-price ">AED @item.DiscountedPrice</span>
                                     </div>
                                 }
                             </div>
@@ -123,7 +129,7 @@
                                     <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.Image" alt="@item.Title"></a>
                                 }
 
-                               
+
                                 @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
                                 {
                                     <div class="product-action">
@@ -174,14 +180,14 @@
                             @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
                             {
                                 <div class="price-box">
-                                    <span class="new-price ">RS @item.Price</span>
+                                    <span class="new-price ">AED @item.Price</span>
                                 </div>
                             }
                             else
                             {
                                 <div class="price-box">
-                                    <span class="old-price ">RS @item.Price</span>
-                                    <span class="new-price ">RS @item.DiscountedPrice</span>
+                                    <span class="old-price ">AED @item.Price</span>
+                                    <span class="new-price ">AED @item.DiscountedPrice</span>
                                 </div>
                             }
                             <p>@item.Description</p>

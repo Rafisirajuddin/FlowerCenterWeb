@@ -5,17 +5,25 @@
 }
 
 <style>
-
-
-
+    @@media (max-width: 600px) {
+        .container-sm {
+            margin: 0;
+            width: 100%;
+        }
+    }
+    .prod-detail-small {
+        height: 145px;
+    }
     @@import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
     .pro_review:nth-child(3n) {
         padding-left: 0;
     }
+
     .modal-dialog {
         max-width: 600px;
     }
+
     .review_thumb {
         margin-right: 30px;
         min-width: 0%;
@@ -25,15 +33,6 @@
     label {
         margin: 0;
         padding: 0
-    }
-
-    body {
-        margin: 20px
-    }
-
-    h1 {
-        font-size: 1.5em;
-        margin: 10px
     }
 
     .rating {
@@ -131,9 +130,10 @@ else
 
 
 <div class="main-content-wrap section-ptb product-details-page">
-    <div class="container">
+    <div class=" container container-sm">
         <div class="row">
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-6 col-md-6">
+
                 <div class="product-details-images">
                     <div class="product_details_container">
                         <div class="product_big_images-top">
@@ -201,9 +201,11 @@ else
                         </ul>
                     </div>
                 </div>
+
             </div>
-            <div class="col-lg-8 col-md-6 px-0 px-md-3">
-                <div class="product_details_info">
+
+            <div class="col-lg-6 col-md-6 px-0 px-md-3">
+                <div class="product_details_info container">
 
                     <h2 class="m-0">@ViewBag.ProductDetails.Title</h2>
                     <div class="pro_rating d-flex ">
@@ -316,8 +318,11 @@ else
 
                     </ul>
                 </div>
+
             </div>
         </div>
+    </div>
+    <div class="container container-sm">
         <div class="row">
             <div class="col-12">
                 <div class="product-details-tab mt-60">
@@ -360,7 +365,7 @@ else
                                                 </div>
                                                 <div class="review_details">
                                                     <div class="review_info">
-                                                        <h5>@i.Name</h5> 
+                                                        <h5>@i.Name</h5>
                                                     </div>
                                                     <div class="review_date">
                                                         <span>@i.Email</span>
@@ -390,7 +395,7 @@ else
                                                             }
 
                                                         </ul>
-                                                        
+
                                                     </div>
                                                     <p>@i.Description</p>
                                                 </div>
@@ -485,7 +490,7 @@ else
 
                                     <p><a href="#">@item.Title</a></p>
                                     <div class="price-box">
-                                        <span class="new-price ">Rs. @item.DisplayPrice.</span>
+                                        <span class="new-price ">AED. @item.DisplayPrice.</span>
                                         <input type="checkbox" onchange="addGiftItem(this,@Model.ItemID,@item.GiftID, '@item.Title', '@item.Image',@item.DisplayPrice,@item.DiscountedPrice)" name="check" value="@item.GiftID" />
 
                                     </div>

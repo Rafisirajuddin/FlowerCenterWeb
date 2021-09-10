@@ -101,7 +101,7 @@ namespace FlowerCenter.Controllers
                         + "<td style = 'padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;' height='100%' valign='top' bgcolor='' role='module-content'><div>"
                         + "<div style = 'font-family: inherit; text-align: inherit'> " + item.ItemTitle + "</div>"
                         + "<div style = 'font-family: inherit; text-align: inherit'> Qty : " + item.Quantity + "</div>"
-                        + "<div style = 'font-family: inherit; text-align: inherit'><span style='color: #006782'>RS " + item.Price + "</span></div>"
+                        + "<div style = 'font-family: inherit; text-align: inherit'><span style='color: #472b9A'>AED " + item.Price + "</span></div>"
                         + "<div></div></div></td>"
                         + "</tr>"
                         + "</tbody>"
@@ -154,7 +154,7 @@ namespace FlowerCenter.Controllers
                             + "<tr>"
                             + "<td style = 'padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;' height='100%' valign='top' bgcolor='' role='module-content'><div>"
                             + "<div style = 'font-family: inherit; text-align: inherit'> " + item.GiftTitle + "</div>"
-                            + "<div style = 'font-family: inherit; text-align: inherit'><span style='color: #006782'>RS " + item.Price + "</span></div>"
+                            + "<div style = 'font-family: inherit; text-align: inherit'><span style='color: #472b9A'>AED " + item.Price + "</span></div>"
                             + "<div></div></div></td>"
                             + "</tr>"
                             + "</tbody>"
@@ -180,7 +180,7 @@ namespace FlowerCenter.Controllers
                     + "<table border='0' cellpadding='0' cellspacing='0' align='center' width='100%' height='3px' style='line-height:3px; font-size:3px;'>"
                     + "<tbody>"
                     + "<tr>"
-                    + "<td style='padding:0px 0px 3px 0px;background-color: #ffcc00'></td>"
+                    + "<td style='padding:0px 0px 3px 0px;background-color: #ec5195'></td>"
                     + "</tr>"
                     + "</tbody>"
                     + "</table>"
@@ -348,7 +348,7 @@ namespace FlowerCenter.Controllers
                     request.AddHeader("Authorization", "Basic bWVyY2hhbnQuRTEwNTYxOTUwOjhhYTlhZmI5OTg0ODZhMjA0ZjI0ODY0YzIyOTY1OGNh");
                     request.AddHeader("Content-Type", "text/plain");
                     request.AddHeader("Cookie", "TS01f8f5b8=014700973636cae9b19e68becca9cffe02f1b9bf08b3571d5588f1c9f20e1e143356517226b07304069c1eb77d86ef59bc3b54c7a3; TS01f8f5b8=014700973629fbc5b1c98bef8215e78947ec712f67e7bc8aad2f02e93d9992564bd3e564fc4640688959a52d9f31076f56d0f37df1");
-                    request.AddParameter("text/plain", "{\n    \"apiOperation\" : \"CREATE_CHECKOUT_SESSION\",\n    \"order\": {\n            \"amount\" : \"" + data.GrandTotal + "\",\n            \"currency\" : \"RS\", \n            \"id\" : \"" + data.OrderNo + "\" \n        },\n        \"interaction\":{\n        \"operation\":\"PURCHASE\", \n        \"returnUrl\":\"https://localhost:44330/Order/OrderComplete?OrderNo=" + data.OrderNo + "&OrderID=" + LastOrderID + "\", \n        \"cancelUrl\":\"https://FlowerCenter.com/Order/OrderComplete?OrderNo=Reject&OrderID=" + LastOrderID + "\", \n            \"merchant\": {\n                 \"name\": \"Karachi Flora\",\n                 \"logo\": \"https://FlowerCenter.com/Content/assets/images/logo/logo2.png\"\n                 },\n        }\n}", ParameterType.RequestBody);
+                    request.AddParameter("text/plain", "{\n    \"apiOperation\" : \"CREATE_CHECKOUT_SESSION\",\n    \"order\": {\n            \"amount\" : \"" + data.GrandTotal + "\",\n            \"currency\" : \"AED\", \n            \"id\" : \"" + data.OrderNo + "\" \n        },\n        \"interaction\":{\n        \"operation\":\"PURCHASE\", \n        \"returnUrl\":\"https://localhost:44330/Order/OrderComplete?OrderNo=" + data.OrderNo + "&OrderID=" + LastOrderID + "\", \n        \"cancelUrl\":\"https://flowercenter.ae/Order/OrderComplete?OrderNo=Reject&OrderID=" + LastOrderID + "\", \n            \"merchant\": {\n                 \"name\": \"Flower Center\",\n                 \"logo\": \"https://flowercenter.ae/Content/assets/images/logo/logo2.png\"\n                 },\n        }\n}", ParameterType.RequestBody);
                     IRestResponse response = client.Execute(request);
                     var s = response.Content;
                     dynamic dynamicObject = JsonConvert.DeserializeObject(s);
@@ -405,9 +405,9 @@ namespace FlowerCenter.Controllers
             pipe.setKeystorePath(filepath); //only the path that contains the file; do not write the file name
 
             // modify the following to reflect your pages URLs
-            string responseurl = "https://FlowerCenter.com/Order/BenefitPayResponse?OrderID=" + OrderID;
+            string responseurl = "https://flowercenter.ae/Order/BenefitPayResponse?OrderID=" + OrderID;
             pipe.setResponseURL(responseurl.ToString());
-            string errorurl = "https://FlowerCenter.com/Order/BenefitPayResponse";
+            string errorurl = "https://flowercenter.ae/Order/BenefitPayResponse";
             pipe.setErrorURL(errorurl.ToString());
 
             // set a unique track ID for each transaction so you can use it later to match transaction response and identify transactions in your system and “BENEFIT Payment Gateway” portal.
@@ -513,7 +513,7 @@ namespace FlowerCenter.Controllers
             // If anything else is written on the page then you will not be able to complete the process.
             if (result == "CAPTURED")
             {
-                Response.Write("REDIRECT=https://FlowerCenter.com/Order/BenefitPayApproved?OrderID=" + OrderID);
+                Response.Write("REDIRECT=https://flowercenter.ae/Order/BenefitPayApproved?OrderID=" + OrderID);
             }
             else if (result == "NOT CAPTURED" || result == "CANCELED" || result == "DENIED BY RISK" || result == "HOST TIMEOUT")
             {
@@ -584,12 +584,12 @@ namespace FlowerCenter.Controllers
                 {
                     response = "Unable to process transaction temporarily. Try again later.";
                 }
-                Response.Write("REDIRECT=https://FlowerCenter.com/Order/BenefitPayApproved");
+                Response.Write("REDIRECT=https://flowercenter.ae/Order/BenefitPayApproved");
             }
             else
             {
                 //Unable to process transaction temporarily. Try again later or try using another card.
-                Response.Write("REDIRECT=https://FlowerCenter.com/Order/BenefitPayApproved");
+                Response.Write("REDIRECT=https://flowercenter.ae/Order/BenefitPayApproved");
             }
             return View();
         }

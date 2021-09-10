@@ -52,14 +52,22 @@ else
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <div class="about-us-contents">
-                        <h3>Welcome To <span>Karachi Flora</span></h3>
+                        <h3>Welcome To <span>FLOWER CENTER UAE</span></h3>
                         <p>
-                            We are the distributors of world best and beautiful fragrance flowers, deals in variety of different flowers. We import fresh flowers from world best supplier. Good service with quality gifts attract more customers.
-                            With high dedicated and passionate staff, of one of the most experience in the field of flowers and event management for more than 10 years of practice, giving a strong idea in making your events a memorable one.
+                            Flower Center was established in the UAE in 2012 when we started importing artificial flowers and distributing them in the
+                            market. In year 2015, we opened our first branch for direct retail selling followed by a second branch. After that, we have
+                            started contracting with factories abroad to manufacture products according to our own specifications for wholesale and retail
+                            selling. In addition to that, we began our journey in selling natural roses and coordinating parties until this day.
                         </p>
-                        <div class="about-us-btn">
-                            <a href="~/home/contact">Contact Us</a>
-                        </div>
+                        <h3>WHY FLOWER CENTER?</h3>
+                        <p>
+                            We are specialized in coming up with creative ideas for all events and occasions as well as the implementation of interior and
+                            exterior decoration consisted of artificial flowers, springs, artificial vegetables, decorations, and distinctive natural flowers
+                            arrangements
+                        </p>
+                        @*<div class="about-us-btn">
+                                <a href="~/home/contact">Contact Us</a>
+                            </div>*@
                     </div>
 
                 </div>
@@ -72,22 +80,136 @@ else
         </div>
     </div>
 </div>
-<!--// About Us Area -->
-<!-- newsletter-area start -->
-<div class=" bg-newsletter py-5">
-    <div class="container">
-        <div class="row justify-content-center ">
-            <div class="col-lg-4 ">
-                <h4 class="text-newsletter text-center text-white">Subscribe Our <span>Newsletter</span></h4>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control rounded-0" placeholder="Enter your email">
-                    <div class="input-group-append">
-                        <a onclick="getmail(); toast('Thank you: You have been successfully subscribed to Karachi FLora. we will keep you updated with our latest news and offers', 1); return false" class="btn btn-small rounded-0 btn-newsletter"><i class="ion-paper-airplane newsletter-icon" aria-hidden="true"></i></a>
+
+
+<div style="background:#f4f4f4">
+    <div class="" style="background-image: url(../../Content/assets/images/newsletter/newsletterbg.jpg);border-bottom-right-radius: 100px;">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-6 ">
+                    <img src="~/Content/assets/images/newsletter/newsletterimg.png" />
+                </div>
+                <div class="col-lg-6 my-auto text-light">
+                    <h4 class="text-left text-white">Subscribe Our <span>Newsletter</span></h4>
+                    <p>Subscribe to our newsletter and always upto date about new products and promos.</p>
+                    <div class="input-group mycustom">
+                        <input type="email" class="form-control" placeholder="Enter your email" aria-label="Enter your email" aria-describedby="basic-addon2">
+
+                        <div class="input-group-prepend">
+                            <button onclick="getmail();
+                                    toast('Thank you: You have been successfully subscribed to FlowerCenter. we will keep you updated with our latest news and offers', 1); return false"
+                                    class="btn btn-sm mycustom-button ">
+                                Subscribe
+                            </button>
+                        </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- newsletter-area end -->
-<!-- main-content-wrap end -->
+
+<div class="porduct-area section-pt-30 section-pb-30" style="background: #f4f4f4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <h4 style="color:#4a5664">Featured Products</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row product-active-lg-4 product-active">
+            @foreach (var item in ViewBag.Featureditems)
+            {
+                <div class="col-lg-3">
+                    <div class="single-product-wrap product-box">
+                        <a class="add-to-cart-mobile d-sm-none d-block addItemLS btnalert"><i class="ion-ios-cart text-white"></i></a>
+                        <div class="product-image Feature-tiem card1">
+                            @if (item.Image == "" || item.Image == null)
+                            {
+                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img src="~/Content/assets/images/NA.png" alt="@item.Title"></a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.Image" alt="@item.Title"></a>
+                            }
+                            @if (item.HoveredImage == "" || item.HoveredImage == null)
+                            {
+                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img class="img-top" src="~/Content/assets/images/NA.png" alt="@item.Title"></a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img class="img-top" src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.HoveredImage" alt="@item.Title"></a>
+                            }
+                            @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
+                            {
+                                <div class="product-action d-sm-block d-none">
+                                    <a class="add-to-cart addItemLS btnalert" onclick="addtocart(@item.ItemID,'@item.Title','@item.Image',@item.Price,1);toast('Item Added to Cart', 1); return false;"><i class="ion-bag"></i></a>
+                                    <a class="wishlist" onclick="addtoWishlist(@item.ItemID, '@item.Title', '@item.Image',@item.Price, '@item.InStock.ToString()',1);toast('Item Added to wishlist', 1); return false; "><i class="ion-android-favorite-outline"></i></a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="product-action d-sm-block d-none">
+                                    <a class="add-to-cart addItemLS btnalert" onclick="addtocart(@item.ItemID,'@item.Title','@item.Image',@item.DiscountedPrice,1);toast('Item Added to Cart', 1); return false;"><i class="ion-bag"></i></a>
+                                    <a class="wishlist" onclick="addtoWishlist(@item.ItemID, '@item.Title', '@item.Image',@item.DiscountedPrice, '@item.InStock.ToString()',1);toast('Item Added to wishlist', 1); return false; "><i class="ion-android-favorite-outline"></i></a>
+                                </div>
+                            }
+
+                        </div>
+                        <div class="mt-0 p-2 product-content Feature-tiem-content">
+                            <p class="text-left"><a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })">@item.Title</a></p>
+                            <div class="pro_rating d-flex ">
+                                @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
+                                {
+                                    <div class="price-box">
+                                        <span class="currency-text mx-0 text-default"></span><span class="new-price mx-0"> @item.Price</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="price-box">
+                                        <span class="currency-text mx-0"></span><span class="old-price  mx-0"> @item.Price</span>
+                                        <span class="currency-text mx-0 text-default"></span><span class="new-price  mx-0"> @item.DiscountedPrice</span>
+                                    </div>
+                                }
+                                <ul class="product-rating ml-auto d-flex text-right">
+                                    @{
+                                        if (item.Stars != null)
+                                        {
+                                            for (int i = 0; i < item.Stars; i++)
+                                            {
+                                                <li><span class="ion-android-star"></span></li>
+                                            }
+                                            for (int i = 0; i < (5 - item.Stars); i++)
+                                            {
+                                                <li><span class="ion-android-star-outline"></span></li>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <li><span class="ion-android-star-outline"></span></li>
+                                            <li><span class="ion-android-star-outline"></span></li>
+                                            <li><span class="ion-android-star-outline"></span></li>
+                                            <li><span class="ion-android-star-outline"></span></li>
+                                            <li><span class="ion-android-star-outline"></span></li>
+                                        }
+                                    }
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+        @*<div class="col-md-12 text-center mt-50">
+                <a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "AED0",MaxPrice = "AED5000",Searchtext = "",SortID=0})" class="btn btn-default theme-btn-custom  btn-medium" tabindex="0"><span>View All</span></a>
+            </div>*@
+    </div>
+</div>

@@ -351,39 +351,39 @@ else
                 if ($(this).prop("checked") == true) {
                     Category.push($(this).val());
                     var SortID = $(".SelectSort").val();
-                    ProductFilter(Category.join(), "", "", "RS0", "RS50000", SortID);
+                    ProductFilter(Category.join(), "", "", "AED0", "AED5000", SortID);
                 }
                 else {
                     var index = Category.indexOf($(this).val());
                     Category.splice(index, 1);
                     var SortID = $(".SelectSort").val();
-                    ProductFilter(Category.join(), "", "", "RS0", "RS50000", SortID);
+                    ProductFilter(Category.join(), "", "", "AED0", "AED5000", SortID);
                 }
             });
             //$('input[name="Color"]').click(function () {
             //    if ($(this).prop("checked") == true) {
             //        Color.push($(this).val());
-            //        ProductFilter("", "", Color.join(), "RS0", "RS50000",0);
+            //        ProductFilter("", "", Color.join(), "AED0", "AED5000",0);
             //    }
             //    else {
             //        var index = Color.indexOf($(this).val());
             //        Color.splice(index, 1);
-            //        ProductFilter("", "", Color.join(), "RS0", "RS50000",0);
+            //        ProductFilter("", "", Color.join(), "AED0", "AED5000",0);
             //    }
             //});
             $('input[name="SubCategory"]').click(function () {
                 if ($(this).prop("checked") == true) {
                     SubCategory.push($(this).val());
-                    ProductFilter("", SubCategory.join(), "", "RS0", "RS50000",0);
+                    ProductFilter("", SubCategory.join(), "", "AED0", "AED5000",0);
                 }
                 else {
                     var index = SubCategory.indexOf($(this).val());
                     SubCategory.splice(index, 1);
-                    ProductFilter("", SubCategory.join(), "", "RS0", "RS50000",0);
+                    ProductFilter("", SubCategory.join(), "", "AED0", "AED5000",0);
                 }
             });
             $('#Sort').on('change', function () {
-                ProductFilter(Category.join(), "", "", "RS0", "RS50000", this.value);
+                ProductFilter(Category.join(), "", "", "AED0", "AED5000", this.value);
             });
             $("#price-slider").mouseup(function () {
                 var MinPrice = $(".min-price").val();

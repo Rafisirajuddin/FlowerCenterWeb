@@ -73,8 +73,8 @@ namespace FlowerCenter.Controllers
                         data.SortID = Convert.ToInt32(TempData["SortID"].ToString());
                         if (data.MinPrice == "" || data.MaxPrice == "")
                         {
-                            data.MinPrice = "RS0";
-                            data.MaxPrice = "RS50000";
+                            data.MinPrice = "AED0";
+                            data.MaxPrice = "AED5000";
                         }
                         ViewBag.shopList = filterService.GetAll(data);
                         if (ViewBag.shopList.Count < 1)

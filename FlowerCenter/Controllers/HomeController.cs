@@ -17,7 +17,9 @@ namespace FlowerCenter.Controllers
        {
             ViewBag.itemList = new itemService().GetAll();
             ViewBag.Featureditems = new itemService().GetAllFeatured();
-            ViewBag.Category = new categoryBLL().GetAll();
+            var catlist = new categoryBLL().GetAll();
+            ViewBag.Category = catlist.Take(6).ToList();
+            ViewBag.CategorySection1 = catlist.Take(5).ToList();
             //ViewBag.SubCategory = new subcategoryBLL().GetAll();
             //ViewBag.Color = new colorBLL().GetAll();
             ViewBag.Deal = new dealBLL().GetAll();
@@ -28,6 +30,7 @@ namespace FlowerCenter.Controllers
         }
         public ActionResult About()
         {
+            ViewBag.Featureditems = new itemService().GetAllFeatured();
             ViewBag.Banner = new bannerBLL().GetBanner("About");
             return View();
         }

@@ -108,7 +108,6 @@ else
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label><span>Recipient Contact *</span></label>
-                                        @*<input id="ContactNo" class="form-control" type="tel" value="00973-" pattern="[0]{1}[0]{1}[9]{1}[7]{1}[3]{1}-[0-9]{8}" name="ContactNo" required>*@
                                         <input id="ContactNo" class="form-control" placeholder="Contact no." type="text" name="ContactNo" required>
                                     </div>
                                 </div>
@@ -136,30 +135,23 @@ else
                                             <option>11:01 pm to 12:00 pm</option>
                                         </select>
                                     </div>
-                                    @*<div class="form-group col-md-6">
-                                            <label>Delivery Time<span class="required">*</span></label>
-                                            <input id="DeliveryTime" class="form-control" type="time" name="time" required>
-                                        </div>*@
                                 </div>
                                 <div class="form-row">
-                                    @*<div class="form-group col-md-6">
-                                            <label>Recipient Email <span class="required">*</span></label>
-                                            <input id="Email" class="form-control" placeholder="Email" type="email" name="Email" required>
-                                        </div>*@
+                                    
                                     <div class="form-group col-md-6">
                                         <label><span class="">Country *</span></label>
                                         <select id="Country" class="custom-select" required>
                                             <option value="">Select Country...</option>
-                                            <option selected>Pakistan</option>
+                                            <option selected>UAE</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label><span class="">City *</span></label>
                                         <select id="City" class="custom-select" required>
                                             <option value="">Select City...</option>
-                                            <option selected>Karachi</option>
-                                            <option>Islamabad</option>
-                                            <option>Rawalpindi</option>
+                                            <option selected>Sharjah</option>
+                                            <option>Dubai</option>
+                                            <option>Abu Dhabi</option>
 
                                         </select>
                                     </div>
@@ -231,15 +223,14 @@ else
                                     </tbody>
                                     <tfoot>
 
-
                                         <tr class="cart-subtotal">
                                             <th class=" text-left">Cart Subtotal</th>
-                                            <td class=" text-right"><span class="amount semi-bold sub-total">RS00.00</span></td>
+                                            <td class=" text-right"><span class="amount semi-bold sub-total">AED00.00</span></td>
                                         </tr>
                                         <tr class="shipping">
                                             <th class=" text-left" id="coupon-text">Coupon Discount</th>
                                             <td class="product-total text-right">
-                                                <span class="amount coupon-amount"> RS 0</span>
+                                                <span class="amount coupon-amount"> AED 0</span>
                                             </td>
                                         </tr>
                                         <tr class="shipping">
@@ -274,50 +265,17 @@ else
 
                                             <img style="width:100px;" src="~/Content/assets/images/logo/cod.png" />
                                         </button>
-                                        <button id="COD" type="button" class="btn btn-pay button-apply-coupon border-0 " onclick="getbuttonvalue(this)" value="Easypaisa">
+                                        @*<button id="COD" type="button" class="btn btn-pay button-apply-coupon border-0 " onclick="getbuttonvalue(this)" value="Easypaisa">
 
                                             <img style="width:100px;" src="~/Content/assets/images/logo/easypaisa.png" />
                                         </button>
                                         <button id="COD" type="button" class="btn btn-pay button-apply-coupon border-0 " onclick="getbuttonvalue(this)" value="Banktransfer">
 
                                             <img style="width:100px;" src="~/Content/assets/images/logo/banktransfer.png" />
-                                        </button>
+                                        </button>*@
                                       
                                     </div>
-                                    <br />
-                                    <div class="mb-0 mt-30 p-3 hide" id="paraEP">
-                                        <h5>How to Pay</h5>
-
-                                        1: Bring your original and valid Nadra CNIC along with one photocopy.
-                                        <br />
-                                        2: You should have your mobile phone number along with the receiving person’s mobile phone number.
-                                        If you have these things, then
-                                        <br />
-                                        Feel free to visit any authorized Easy Paisa shop for sending the money and
-                                        then follow the below mentioned steps:
-                                        <br />
-                                        Provide the retailer with the above mentioned things and tell him the amount of money you have to transfer,  then he showing the message you're amount has been transferred.
-                                        <hr />
-                                        <h6>
-                                            Account Details
-                                        </h6>
-                                        <p>Information : Imran - 03462392692 </p>
-                                    </div>
-                                    <div class="mb-0 mt-30 p-3 hide" id="paraBT">
-                                        <h5>How to Pay</h5>
-                                        <br />
-                                        Let’s understand through an example. If you are an MEEZAN bank Ltd customer, you can download MEEZAN Mobile app on your phone. Once you activate the app, you will get a menu where you will find the money transfer option. Enter the receiver’s account number and IBAN code. Once you confirm the details, the money gets transferred instantly.
-                                        <hr />
-                                        <h6>
-                                            Account Details
-                                        </h6>
-                                        <p>
-                                            Account #: 01660103795732
-                                            <br />Karachi flora
-                                            <br /> Bank Name:meezan Bank
-                                            <br /> MEZNPKKA88
-                                        </p>
-                                    </div>
+                                   
                                     <p class="mb-0 mt-30 text-danger px-3 text-center">Invoice will be sent only by email and recipient will not get a printed copy.</p>
                                     <p id="Card-text-cs"></p>
                                 </div>
@@ -440,7 +398,7 @@ else
         var currency = localStorage.getItem("currency");
 
         $("#checkout").click(function () {
-
+            debugger
             if ($(".payactive").val() != "PayPal" && $('#SenderName').val() != "" && $('#SenderEmail').val() != "" && $('#SenderContact').val() != "" && $('#Address').val() != "" && $('#Country').val() != "" && $('#City').val() != "" && $('#ContactNo').val() != "" && $('#DeliveryDate').val() != "" && $('#DeliveryTime').val() != "" && $('#CustomerName').val() != "" && $('#Email').val() != "" && $('textarea#CardNotes').val() != "") {
                 if ($(".payactive").val() == null) {
                     $('#payment-alert').html('Kindly select payment option');
@@ -555,9 +513,9 @@ else
             }*@
             var LSsettings = JSON.parse(localStorage.getItem("_setting"));
             var settings = LSsettings[0];
-            
+            debugger
             //total = settings.DeliveryCharges + settings.TaxPercentage +totalPrice;
-            var CouponDisount = parseFloat($(".coupon-amount").text().replace("RS.", ""));
+            var CouponDisount = parseFloat($(".coupon-amount").text().replace("AED.", ""));
             //total = (total - CouponDisount).toFixed(2);
 
             //=============================== Order Master =====================
@@ -567,7 +525,7 @@ else
             total = (((totalPrice + (totalPrice * (settings.TaxPercentage / 100))) - CouponDisount) + settings.DeliveryCharges).toFixed(2);
 
             var Order = new Object();
-            Order.OrderNo = 'KF-' + TodayDate + '-' +@Convert.ToInt32(Session["CustomerID"])+'-' + Math.floor((Math.random() * 1000) + 1);
+            Order.OrderNo = 'FC-' + TodayDate + '-' +@Convert.ToInt32(Session["CustomerID"])+'-' + Math.floor((Math.random() * 1000) + 1);
             Order.CustomerID = @Convert.ToInt32(Session["CustomerID"]);
             Order.AmountTotal = totalPrice;
             Order.GrandTotal = total;
@@ -664,7 +622,7 @@ else
                     amount: function () {
                         return amount; // Transaction Amount
                     },
-                    currency: 'RS',
+                    currency: 'AED',
                     description: ''+description+'',
                     id: ''+OrderID+'' //Pass new order id
                 },
@@ -675,7 +633,7 @@ else
                     operation: 'PURCHASE', // set this field to 'PURCHASE' for Hosted Checkout to perform a Pay Operation when LIVE. -->
                     merchant: {
                         name: 'FlowerCenter',
-                        logo: 'https://FlowerCenter.com/images/logo.png'
+                        logo: 'https://flowercenter.ae/images/logo.png'
                     },
                     displayControl: {
                         billingAddress: 'HIDE'
@@ -773,7 +731,7 @@ else
 
             if (total < settings.MinimumOrderValue && total > 0) {
                 $("#checkout").hide();
-                $("#Text-Error").html("Minimum Order Value is RS " + settings.MinimumOrderValue.toFixed(2) + ". Please get some more product to proceed your order.");
+                $("#Text-Error").html("Minimum Order Value is AED " + settings.MinimumOrderValue.toFixed(2) + ". Please get some more product to proceed your order.");
             }
             else if (total > settings.MinimumOrderValue) {
                 $("#checkout").show();

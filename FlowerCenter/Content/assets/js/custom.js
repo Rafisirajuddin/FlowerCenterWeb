@@ -6,18 +6,12 @@
     GetWishListItems();
     StockActiveColor();
     headertext();
-
     CountDownTimer();
-
-
     var Currency;
     var Tags;
     var ShippingCharges;
     var Color;
     var Category;
-
-
-
     $(".addItemLS").click(function () {
         cartitem();
         topheadcart();
@@ -54,7 +48,7 @@ function headertext() {
                 $("#twitter a").attr("href", data.TwitterUrl);
             }
             if (data.ShopUrl == null || data.ShopUrl == "") {
-                $('.Shop-Now-Button').attr("href", "/shop/shop?MinPrice=RS0&MaxPrice=RS50000&SortID=0");
+                $('.Shop-Now-Button').attr("href", "/shop/shop?MinPrice=AED0&MaxPrice=AED5000&SortID=0");
             }
             else {
                 $('.Shop-Now-Button').attr("href", data.ShopUrl);
@@ -75,7 +69,7 @@ function headertext() {
                 if (lstNotification[index].Image == '' || lstNotification[index].Image == null) {
                     $('#modalImg').addClass("hide");
                 }
-                $('#modalImg').attr('src',"https://admin.FlowerCenter.com/"+ lstNotification[index].Image)
+                $('#modalImg').attr('src',"https://admin.flowercenter.ae/"+ lstNotification[index].Image)
             }
 
         },
@@ -198,7 +192,7 @@ function topheadcart() {
             html += '<a href="/Product/ProductDetails?ItemID=' + data[i].ItemID + '"><img alt="" src="/Content/assets/images/NA.png"></a>'
         }
         else {
-            html += '<a href="/Product/ProductDetails?ItemID=' + data[i].ItemID + '"><img alt="" src="https://admin.FlowerCenter.com/' + data[i].Image + '"></a>'
+            html += '<a href="/Product/ProductDetails?ItemID=' + data[i].ItemID + '"><img alt="" src="https://admin.flowercenter.ae/' + data[i].Image + '"></a>'
         }
         html += '</div>'
             + '<div class="cart-title">'
@@ -271,7 +265,7 @@ function cartitem() {
             html += '<td class="plantmore-product-thumbnail"><a href="/Product/ProductDetails?ItemID=' + data[i].ItemID + '"><img class="cart-img" src="/Content/assets/images/NA.png" alt=""></a></td>'
         }
         else {
-            html += '<td class="plantmore-product-thumbnail"><a href="/Product/ProductDetails?ItemID=' + data[i].ItemID + '"><img class="cart-img" src="https://admin.FlowerCenter.com/' + data[i].Image + '" alt=""></a></td>'
+            html += '<td class="plantmore-product-thumbnail"><a href="/Product/ProductDetails?ItemID=' + data[i].ItemID + '"><img class="cart-img" src="https://admin.flowercenter.ae/' + data[i].Image + '" alt=""></a></td>'
         }
 
         html += '<td class="plantmore-product-name">'
@@ -288,7 +282,7 @@ function cartitem() {
                 //gift
                 html += '<p class="addon"> Addon Products</p>'
                 html += '<div class="d-flex flex-wrap justify-content-center mb-3 gift-in-cart border">'
-                    + '<div class="p-2 img"><img src="http://admin.FlowerCenter.com/' + _dataGiftFilter[j].Image + '" alt=""></div>'
+                    + '<div class="p-2 img"><img src="https://admin.flowercenter.ae/' + _dataGiftFilter[j].Image + '" alt=""></div>'
                     + '<div class="p-2 align-self-center"><p>' + _dataGiftFilter[j].Title + '</p></div>'
                     + '<div class="p-2 align-self-center "><p class="badge badge-dark"><span class="currency-text mx-0 text-white"></span>' + currency + ' ' + _dataGiftFilter[j].DisplayPrice + '</p></div>'
                     + '<div class="p-2 align-self-center"><button class="bg-transparent border-0 text-danger" onclick="removeCartGift(' + _dataGiftFilter[j].Key + '); return false;"><i class="h6 ion-trash-a mb-0"></i></button></div>'
@@ -457,7 +451,7 @@ function GetWishListItems() {
             html += '<td class="plantmore-product-thumbnail"><a href="/Product/ProductDetails?ItemID=' + data[i].ItemID + '"><img class="wishlist-img" src="/Content/assets/images/NA.png" alt=""></a></td>'
         }
         else {
-            html += '<td class="plantmore-product-thumbnail"><a href="/Product/ProductDetails?ItemID=' + data[i].ItemID + '"><img class="wishlist-img" src="http://admin.FlowerCenter.com/' + data[i].Image + '" alt=""></a></td>'
+            html += '<td class="plantmore-product-thumbnail"><a href="/Product/ProductDetails?ItemID=' + data[i].ItemID + '"><img class="wishlist-img" src="https://admin.flowercenter.ae/' + data[i].Image + '" alt=""></a></td>'
         }
 
         html += '<td class="plantmore-product-name"><a href="#">' + data[i].Title + '</a></td>'
@@ -497,13 +491,13 @@ function StockActiveColor() {
 };
 
 //Currency
-var currency = "Rs.";
+var currency = "AED.";
 var currencyLS = localStorage.getItem("currency");
 if (currencyLS == null) {
     localStorage.setItem("currency", currency);
 }
 else {
-    localStorage.setItem("currency", "RS.");
+    localStorage.setItem("currency", "AED.");
 }
 function ShowText() {
     var currency = localStorage.getItem("currency");

@@ -112,14 +112,14 @@
     <tbody>
       <tr>
         <td style="">
-          <img class="max-width" border="0" style="display:block; width: 200px;"  alt="" data-proportionally-constrained="true" data-responsive="false" src="https://FlowerCenter.com/Content/assets/images/logo/logo.png">
+          <img class="max-width" border="0" style="display:block; width: 200px;"  alt="" data-proportionally-constrained="true" data-responsive="false" src="https://flowercenter.ae/Content/assets/images/logo/logo.svg">
         </td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="1995753e-0c64-4075-b4ad-321980b82dfe">
     <tbody>
       <tr>
-        <td style="padding:25px 0px 18px 0px; line-height:36px; text-align:inherit; color: #006782" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: inherit;padding-top: 15px;"><span style="color: #006782; font-size: 40px; font-family: inherit">New Query From Customer</span></div><div></div></div></td>
+        <td style="padding:25px 0px 18px 0px; line-height:36px; text-align:inherit; color: #472b9A" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: inherit;padding-top: 15px;"><span style="color: #472b9A; font-size: 40px; font-family: inherit">New Query From Customer</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table>
@@ -137,7 +137,7 @@
     <tbody>
       <tr>
         <td style="padding:18px 20px 18px 30px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div>
-<div style="font-family: inherit; text-align: inherit"><span style="color: #006782"><strong>Query Date :  #Date#</strong></span></div>
+<div style="font-family: inherit; text-align: inherit"><span style="color: #472b9A"><strong>Query Date :  #Date#</strong></span></div>
 <div style="font-family: inherit; text-align: inherit"><br></div>
 <div style="font-family: inherit; text-align: inherit">Customer Name :#Name#</div>
 <div style="font-family: inherit; text-align: inherit">Customer Email: #Email#</div>

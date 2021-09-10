@@ -2,21 +2,125 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<style>
+    @@media only screen and (max-width: 480px) {
+        .Feature-tiem > a img {
+            height: 145px !important;
+        }
+    }
 
+    .mycustom {
+        border: solid 1px green;
+        position: relative;
+    }
+
+        .mycustom input[type=email] {
+            border: none;
+            width: 100%;
+            padding-right: 123px;
+            padding: 25px;
+            border-radius: 20px;
+            border-top-right-radius: 20px !important;
+            border-bottom-right-radius: 20px !important;
+        }
+
+        .mycustom .input-group-prepend {
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            bottom: 4px;
+            z-index: 9;
+        }
+
+    .mycustom-button {
+        border-radius: 20px !important;
+        background-color: #ec5195 !important;
+        border: none;
+        color: white;
+    }
+
+    
+    .shopbtn-category {
+        border-radius: 6px;
+        background-color: #ec5195;
+        border-color: #ec5195;
+        color: white;
+    }
+
+    .product-box {
+        border-radius: 15px;
+        background: white;
+        border: 1px solid #ddd;
+        box-shadow: 0px 0px 4px 0px #ddd;
+    }
+
+        .product-box a {
+            border-bottom: none !important;
+        }
+
+        .product-box img {
+            border-radius: 15px;
+            border-bottom-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            width: 100% !important;
+            height: 230px !important;
+            border-bottom: 1px solid #777;
+            object-fit: cover !important;
+        }
+
+        .product-box .img-top {
+            border-radius: 15px;
+        }
+
+    .categorybox img {
+        border-radius: 20px;
+        height: 165px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .categorybox h6 {
+        text-align: center
+    }
+
+    .product-box .Feature-tiem-content p {
+        min-height: 50px
+    }
+
+    .testimonial-slider-box {
+        padding: 20px;
+        margin: 20px 10px;
+        color: #4a5664;
+        position: relative;
+        text-align: left !important;
+        border-radius: 20px;
+        box-shadow: 0px 6px 9px 0 rgba(126, 126, 126, 0.15);
+        border: solid 1px #a43894;
+        background-color: #fff;
+    }
+
+        .testimonial-slider-box img {
+            position: absolute;
+            top: -18px;
+            left: 30px;
+            width: 35px;
+            margin: 0px;
+        }
+</style>
 <div class="hero-slider hero-slider-one ">
 
     @foreach (var item in ViewBag.Banner)
     {
         @*<div class="single-slide" style="background-image: url(@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.Image)">*@
-        <div class="single-slide" style="background-image: url(../../Content/@item.Image)">
+        <div class="single-slide" style="background-image: url(../../Content/assets/images/slider/slider1.jpg)">
             <div class="hero-content-one container">
-                <div class="row text-center">
+                <div class="row text-left">
                     <div class="col-lg-12">
-                        <div class="slider-text-info">
-                            <h2>@item.Title </h2>
-                            <h1>@item.MainHeading </h1>
-                            <p class="slider-para">@item.Description</p>
-                            <a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "RS0",MaxPrice = "RS50000",Searchtext = "",SortID=0})" class="btn btn-default uppercase btn-large Shop-Now-Button"><span data-translate="000a3">SHOP NOW</span></a>
+                        <div class="slider-text-info ">
+                            @*<h4 class="text-light">@item.Title </h4>*@
+                            <h1 class="text-light">@item.MainHeading </h1>
+                            <p class="text-light slider-para ml-0">@item.Description</p>
+                            <a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "AED0",MaxPrice = "AED5000",Searchtext = "",SortID=0})" class="btn btn-default uppercase theme-btn-custom "><span data-translate="000a3">SHOP NOW</span></a>
                         </div>
                     </div>
                 </div>
@@ -27,28 +131,29 @@
 </div>
 <div class="deal-row"></div>
 
-<div class=" bg-workflow py-5 d-lg-block d-none">
-    <div class="container">
-
-        <div class="row ">
-            <div class="col-lg-3 col-md-6 py-3">
-                <img class="flow-img" src="~/Content/assets/images/workflow/flower.png">
-                <p class="pt-30 px-3 text-center text-white">Choose your flower then click order in the website.</p>
-                <img class="arrow" src="~/Content/assets/images/workflow/arrow.png">
-            </div>
-            <div class="col-lg-3 col-md-6 py-3">
-                <img class="flow-img" src="~/Content/assets/images/workflow/form.png">
-                <p class="pt-30 px-3 text-center text-white">Fill in your order data  form & make sure everything fits.</p>
-                <img class="arrow" src="~/Content/assets/images/workflow/arrow.png">
-            </div>
-            <div class="col-lg-3 col-md-6 py-3">
-                <img class="flow-img" src="~/Content/assets/images/workflow/card.png">
-                <p class="pt-30 px-3 text-center text-white">Make payment according to the price listed on your order.</p>
-                <img class="arrow" src="~/Content/assets/images/workflow/arrow.png">
-            </div>
-            <div class="col-lg-3 col-md-6 py-3">
-                <img class="flow-img" src="~/Content/assets/images/workflow/bus.png">
-                <p class="pt-30 px-3 text-center text-white">Your flowers is ready to process & delivery to your address.</p>
+<div class="greybg-theme">
+    <div class="py-5 " style="background-color:#f4f4f4;border-bottom-left-radius: 100px">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-3 col-md-6 py-3">
+                    <img class="flow-img" src="~/Content/assets/images/workflow/step1.png" style="margin-top:-25px">
+                    <p class="pt-30 px-3 text-center ">Choose your flower then click order in the website.</p>
+                    <img class="arrow" src="~/Content/assets/images/workflow/arrow.png">
+                </div>
+                <div class="col-lg-3 col-md-6 py-3">
+                    <img class="flow-img" src="~/Content/assets/images/workflow/step2.png">
+                    <p class="pt-30 px-3 text-center ">Fill in your order data  form & make sure everything fits.</p>
+                    <img class="arrow" src="~/Content/assets/images/workflow/arrow.png">
+                </div>
+                <div class="col-lg-3 col-md-6 py-3">
+                    <img class="flow-img" src="~/Content/assets/images/workflow/step3.png">
+                    <p class="pt-30 px-3 text-center ">Make payment according to the price listed on your order.</p>
+                    <img class="arrow" src="~/Content/assets/images/workflow/arrow.png">
+                </div>
+                <div class="col-lg-3 col-md-6 py-3">
+                    <img class="flow-img" src="~/Content/assets/images/workflow/step4.png">
+                    <p class="pt-30 px-3 text-center ">Your flowers is ready to process & delivery to your address.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -135,134 +240,289 @@
         document.getElementById("mySidenav").style.width = "0";
     }
 </script>
-<div class="porduct-area section-pt section-pb-60 bg-product ">
-    <div class="container w-100">
-        <div class="row">
-            <div class="col-lg-12">
-
-                <div class="section-title text-center">
-                    <h2 class="text-default"><span class="font-weight-lighter">Featured</span> Products</h2>
-                    <p>With Karachi Flora, you can buy happy birthday flowers, thoughtful get well gifts, funeral and sympathy flower arrangements, and your everyday beautiful florals.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row product-active-lg-4 product-active">
-
-            @foreach (var item in ViewBag.Featureditems)
-            {
-                <div class="col-lg-3">
-                    <div class="single-product-wrap">
-                        <div class="product-image all-product-image card1">
-                            @if (item.Image == "" || item.Image == null)
-                            {
-                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img src="~/Content/assets/images/NA.png" alt="@item.Title"></a>
-                            }
-                            else
-                            {
-                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.Image" alt="@item.Title"></a>
-                            }
-                            @if (item.HoveredImage == "" || item.HoveredImage == null)
-                            {
-                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img class="img-top" src="~/Content/assets/images/NA.png" alt="@item.Title"></a>
-                            }
-                            else
-                            {
-                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img class="img-top" src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.HoveredImage" alt="@item.Title"></a>
-                            }
-
-                            @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
-                            {
-                                <div class="product-action">
-                                    <a class="add-to-cart addItemLS btnalert" onclick="addtocart(@item.ItemID,'@item.Title','@item.Image',@item.Price,1);toast('Item Added to Cart', 1); return false;"><i class="ion-bag"></i></a>
-                                    <a class="wishlist" onclick="addtoWishlist(@item.ItemID, '@item.Title', '@item.Image',@item.Price, '@item.InStock.ToString()',1);toast('Item Added to wishlist', 1); return false; "><i class="ion-android-favorite-outline"></i></a>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="product-action">
-                                    <a class="add-to-cart addItemLS btnalert" onclick="addtocart(@item.ItemID,'@item.Title','@item.Image',@item.DiscountedPrice,1);toast('Item Added to Cart', 1); return false;"><i class="ion-bag"></i></a>
-                                    <a class="wishlist" onclick="addtoWishlist(@item.ItemID, '@item.Title', '@item.Image',@item.DiscountedPrice, '@item.InStock.ToString()',1);toast('Item Added to wishlist', 1); return false; "><i class="ion-android-favorite-outline"></i></a>
-                                </div>
-                            }
-                        </div>
-                        <div class="product-content">
-
-                            <h3>
-                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })">@item.Title</a>
-                            </h3>
-                            <div class="pro_rating d-flex ">
-                                <ul class="product-rating d-flex m-auto">
-                                    @{
-                                        if (item.Stars != null)
-                                        {
-                                            for (int i = 0; i < item.Stars; i++)
-                                            {
-                                                <li><span class="ion-android-star"></span></li>
-                                            }
-                                            for (int i = 0; i < (5 - item.Stars); i++)
-                                            {
-                                                <li><span class="ion-android-star-outline"></span></li>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            <li><span class="ion-android-star-outline"></span></li>
-                                            <li><span class="ion-android-star-outline"></span></li>
-                                            <li><span class="ion-android-star-outline"></span></li>
-                                            <li><span class="ion-android-star-outline"></span></li>
-                                            <li><span class="ion-android-star-outline"></span></li>
-                                        }
-                                    }
-                                </ul>
-                            </div>
-                            @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
-                            {
-                                <div class="price-box">
-                                    <span class="currency-text mx-0 text-default"></span><span class="new-price mx-0 "> @item.Price</span>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="price-box">
-                                    <span class="currency-text mx-0"></span><span class="old-price mx-0 "> @item.Price</span>
-                                    <span class="currency-text mx-0 text-default"></span><span class="new-price mx-0 "> @item.DiscountedPrice</span>
-                                </div>
-                            }
-                        </div>
+<div class="greybg-theme">
+    <div class="porduct-area section-pt-60 section-pb-60"
+         style="background-image:url(../../Content/assets/images/Categorybox-watermark.png);
+                background-position: left center;
+                background-repeat: no-repeat;
+                background-size: 300px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <h3 class="text-light">Our Categories</h3>
                     </div>
                 </div>
-            }
+            </div>
+            <div class="row">
+                @if (ViewBag.CategorySection1 != null && ViewBag.CategorySection1.Count > 0)
+                {
+                    for (int i = 0; i < ViewBag.CategorySection1.Count; i++)
+                    {
+                        var data = ViewBag.CategorySection1[i];
+                        var colclass = i == 0 ? "col-lg-6" : i == 1 ? "col-lg-6" : "col-lg-4";
+                        <div class="@colclass form-group">
+                            <div class="card" style="border-radius:20px;background:#EDEDED;border:none">
+                                <div class="row">
+                                    <div class="col-sm-6 align-self-center">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@data.Title</h5>
+                                            <a href="#" class="btn btn-primary btn-medium shopbtn-category">Shop Now</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <img class="card-img" style="border-radius:20px; max-height:270px;min-height:170px;border:none" src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@data.Image" alt="Image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
 
-        </div>
-        <div class="col-md-12 text-center mt-50">
-            <a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "RS0",MaxPrice = "RS50000",Searchtext = "",SortID=0})" class="btn btn-default  btn-large" tabindex="0"><span>View All</span></a>
+            </div>
         </div>
     </div>
 </div>
-<div class="porduct-area section-pt section-pb-60 prod-banner">
+<div class="greybg-theme">
+    <div class="porduct-area section-pt section-pb-60 prod-banner" style="background: #f4f0ff;border-top-right-radius: 100px ">
 
-    <div class="container w-100">
-        <div class="row">
-            <div class="col-lg-12">
-
-                <div class="section-title text-center">
-
-                    <div class="d-flex justify-content-between mb-3 ">
-                        <div class="p-2"><h2 class="text-default "><span class="font-weight-lighter">All</span> Products</h2></div>
-                        <div class="align-self-center ">
-                            <a style="font-size: 14px;cursor: pointer;padding: 4px 15px;" class="bold border border-dark btn btn-default-opposite shadow-sm" onclick="openNav()"><i class="ion-funnel mr-1"></i> <span>Filter</span></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <div class="d-flex justify-content-between mb-2 ">
+                            <div class="p-2">
+                                <h3 class="text-default " style="color:#4a5664; font-size: 1.75rem;">All Products</h3>
+                            </div>
+                            <div class="align-self-center ">
+                                <a style="font-size: 14px;cursor: pointer;padding: 4px 15px;" class="bold border border-dark btn btn-default-opposite shadow-sm" onclick="openNav()"><i class="ion-funnel mr-1"></i> <span>Filter</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @*Large Screen*@
+            <div class="row all-products d-lg-flex d-none">
+                @foreach (var item in ViewBag.TenItems)
+                {
+                    <div class="col-lg-3 col-4">
+                        <div class="single-product-wrap product-box">
+                            <a class="add-to-cart-mobile d-sm-none d-block addItemLS btnalert"><i class="ion-ios-cart text-white"></i></a>
+                            <div class="product-image Feature-tiem card1">
+                                @if (item.Image == "" || item.Image == null)
+                                {
+                                    <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img src="~/Content/assets/images/NA.png" alt="@item.Title"></a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.Image" alt="@item.Title"></a>
+                                }
+                                @if (item.HoveredImage == "" || item.HoveredImage == null)
+                                {
+                                    <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img class="img-top" src="~/Content/assets/images/NA.png" alt="@item.Title"></a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img class="img-top" src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.HoveredImage" alt="@item.Title"></a>
+                                }
+                                @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
+                                {
+                                    <div class="product-action d-sm-block d-none">
+                                        <a class="add-to-cart addItemLS btnalert" onclick="addtocart(@item.ItemID,'@item.Title','@item.Image',@item.Price,1);toast('Item Added to Cart', 1); return false;"><i class="ion-bag"></i></a>
+                                        <a class="wishlist" onclick="addtoWishlist(@item.ItemID, '@item.Title', '@item.Image',@item.Price, '@item.InStock.ToString()',1);toast('Item Added to wishlist', 1); return false; "><i class="ion-android-favorite-outline"></i></a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="product-action d-sm-block d-none">
+                                        <a class="add-to-cart addItemLS btnalert" onclick="addtocart(@item.ItemID,'@item.Title','@item.Image',@item.DiscountedPrice,1);toast('Item Added to Cart', 1); return false;"><i class="ion-bag"></i></a>
+                                        <a class="wishlist" onclick="addtoWishlist(@item.ItemID, '@item.Title', '@item.Image',@item.DiscountedPrice, '@item.InStock.ToString()',1);toast('Item Added to wishlist', 1); return false; "><i class="ion-android-favorite-outline"></i></a>
+                                    </div>
+                                }
+
+                            </div>
+                            <div class="mt-0 p-2 product-content Feature-tiem-content">
+                                <p class="text-left"><a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })">@item.Title</a></p>
+                                <div class="pro_rating d-flex ">
+                                    @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
+                                    {
+                                        <div class="price-box">
+                                            <span class="currency-text mx-0 text-default"></span><span class="new-price mx-0"> @item.Price</span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="price-box">
+                                            <span class="currency-text mx-0"></span><span class="old-price  mx-0"> @item.Price</span>
+                                            <span class="currency-text mx-0 text-default"></span><span class="new-price  mx-0"> @item.DiscountedPrice</span>
+                                        </div>
+                                    }
+                                    <ul class="product-rating ml-auto d-flex text-right">
+                                        @{
+                                            if (item.Stars != null)
+                                            {
+                                                for (int i = 0; i < item.Stars; i++)
+                                                {
+                                                    <li><span class="ion-android-star"></span></li>
+                                                }
+                                                for (int i = 0; i < (5 - item.Stars); i++)
+                                                {
+                                                    <li><span class="ion-android-star-outline"></span></li>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <li><span class="ion-android-star-outline"></span></li>
+                                                <li><span class="ion-android-star-outline"></span></li>
+                                                <li><span class="ion-android-star-outline"></span></li>
+                                                <li><span class="ion-android-star-outline"></span></li>
+                                                <li><span class="ion-android-star-outline"></span></li>
+                                            }
+                                        }
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+                @*<div class="col-md-12 text-center my-1 pt-lg-4">
+                    <a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "AED0",MaxPrice = "AED5000",Searchtext = "",SortID=0})" class="btn btn-default theme-btn-custom  btn-medium" tabindex="0"><span>View All</span></a>
+                </div>*@
+            </div>
+            @*mobile View*@
+            <div class="row all-products d-flex d-lg-none">
+                @foreach (var item in ViewBag.itemList)
+                {
+                    <div class="col-lg-3 col-4">
+                        <div class="single-product-wrap product-box">
+                            @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
+                            {
+                                <a class="add-to-cart-mobile d-sm-none d-block addItemLS btnalert" onclick="addtocart(@item.ItemID,'@item.Title','@item.Image',@item.Price,1);toast('Item Added to Cart', 1); return false;"><i class="ion-ios-cart text-white"></i></a>
+                            }
+                            else
+                            {
+                                <a class="add-to-cart-mobile d-sm-none d-block addItemLS btnalert" onclick="addtocart(@item.ItemID,'@item.Title','@item.Image',@item.DiscountedPrice,1);toast('Item Added to Cart', 1); return false;"><i class="ion-ios-cart text-white"></i></a>
+                            }
+                            <div class="product-image Feature-tiem card1">
+                                @if (item.Image == "" || item.Image == null)
+                                {
+                                    <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img src="~/Content/assets/images/NA.png" alt="@item.Title"></a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.Image" alt="@item.Title"></a>
+                                }
+                                @if (item.HoveredImage == "" || item.HoveredImage == null)
+                                {
+                                    <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img class="img-top" src="~/Content/assets/images/NA.png" alt="@item.Title"></a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img class="img-top" src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.HoveredImage" alt="@item.Title"></a>
+                                }
+                            </div>
+                            <div class="mt-0 mt-sm-3 product-content Feature-tiem-content">
+                                <p><a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"> @item.Title </a></p>
+
+                                <div class="pro_rating d-flex ">
+                                    <ul class="product-rating m-auto d-flex">
+                                        @{
+                                            if (item.Stars != null)
+                                            {
+                                                for (int i = 0; i < item.Stars; i++)
+                                                {
+                                                    <li><span class="ion-android-star"></span></li>
+                                                }
+                                                for (int i = 0; i < (5 - item.Stars); i++)
+                                                {
+                                                    <li><span class="ion-android-star-outline"></span></li>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <li><span class="ion-android-star-outline"></span></li>
+                                                <li><span class="ion-android-star-outline"></span></li>
+                                                <li><span class="ion-android-star-outline"></span></li>
+                                                <li><span class="ion-android-star-outline"></span></li>
+                                                <li><span class="ion-android-star-outline"></span></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                                @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
+                                {
+                                    <div class="price-box">
+                                        <span class="currency-text mx-0 text-default"></span><span class="new-price mx-0">@item.Price</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="price-box">
+                                        <span class="currency-text mx-0"></span><span class="old-price mx-0">@item.Price</span>
+                                        <span class="currency-text mx-0 text-default"></span><span class="new-price mx-0">@item.DiscountedPrice</span>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+                @*<div class="col-md-12 text-center my-4 pt-lg-5">
+                    <a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "AE0",MaxPrice = "AED5000",Searchtext = "",SortID=0})" class="btn btn-default theme-btn-custom  btn-medium" tabindex="0"><span>View All</span></a>
+                </div>*@
+            </div>
         </div>
-        @*Large Screen*@
-        <div class="row all-products d-lg-flex d-none">
-            @foreach (var item in ViewBag.TenItems)
+    </div>
+</div>
+<div style="background:#f4f4f4">
+    <div class="porduct-area section-pt-60 section-pb-60" style="background: #edd1e8;border-bottom-right-radius:100px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <h4 style="color:#4a5664">Shop By Category</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (var item in ViewBag.Category)
+                {
+                    <div class="col-lg-2 col-md-2 col-xs-6 col-sm-6   text-center">
+                        <div class="single-blog mt-30 categorybox">
+                            <div class="blog-image">
+                                <a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "AED0",MaxPrice = "AED5000",Searchtext = "",SortID=0})">
+                                    <img src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.Image" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-content">
+                                <h6>
+                                    <a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "AED0",MaxPrice = "AED5000",Searchtext = "",SortID=0})">
+                                        @item.Title
+                                    </a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="porduct-area section-pt-30 section-pb-30" style="background: #f4f4f4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <h4 style="color:#4a5664">Featured Products</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row product-active-lg-4 product-active">
+            @foreach (var item in ViewBag.Featureditems)
             {
-                <div class="col-lg-3 col-4">
-                    <div class="single-product-wrap">
+                <div class="col-lg-3">
+                    <div class="single-product-wrap product-box">
                         <a class="add-to-cart-mobile d-sm-none d-block addItemLS btnalert"><i class="ion-ios-cart text-white"></i></a>
                         <div class="product-image Feature-tiem card1">
                             @if (item.Image == "" || item.Image == null)
@@ -297,10 +557,23 @@
                             }
 
                         </div>
-                        <div class="mt-0 mt-sm-3 product-content Feature-tiem-content">
-                            <p><a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })">@item.Title</a></p>
+                        <div class="mt-0 p-2 product-content Feature-tiem-content">
+                            <p class="text-left"><a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })">@item.Title</a></p>
                             <div class="pro_rating d-flex ">
-                                <ul class="product-rating m-auto d-flex">
+                                @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
+                                {
+                                    <div class="price-box">
+                                        <span class="currency-text mx-0 text-default"></span><span class="new-price mx-0"> @item.Price</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="price-box">
+                                        <span class="currency-text mx-0"></span><span class="old-price  mx-0"> @item.Price</span>
+                                        <span class="currency-text mx-0 text-default"></span><span class="new-price  mx-0"> @item.DiscountedPrice</span>
+                                    </div>
+                                }
+                                <ul class="product-rating ml-auto d-flex text-right">
                                     @{
                                         if (item.Stars != null)
                                         {
@@ -323,135 +596,88 @@
                                         }
                                     }
                                 </ul>
-                            </div>
-                            @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
-                            {
-                                <div class="price-box">
-                                    <span class="currency-text mx-0 text-default"></span><span class="new-price mx-0"> @item.Price</span>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="price-box">
-                                    <span class="currency-text mx-0"></span><span class="old-price  mx-0"> @item.Price</span>
-                                    <span class="currency-text mx-0 text-default"></span><span class="new-price  mx-0"> @item.DiscountedPrice</span>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-            }
-            <div class="col-md-12 text-center my-4 pt-lg-5">
-                <a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "RS0",MaxPrice = "RS50000",Searchtext = "",SortID=0})" class="btn btn-default  btn-large" tabindex="0"><span>View All</span></a>
-            </div>
-        </div>
-        @*mobile View*@
-        <div class="row all-products d-flex d-lg-none">
-            @foreach (var item in ViewBag.itemList)
-            {
-                <div class="col-lg-3 col-4">
-                    <div class="single-product-wrap">
-                        @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
-                        {
-                            <a class="add-to-cart-mobile d-sm-none d-block addItemLS btnalert" onclick="addtocart(@item.ItemID,'@item.Title','@item.Image',@item.Price,1);toast('Item Added to Cart', 1); return false;"><i class="ion-ios-cart text-white"></i></a>
-                        }
-                        else
-                        {
-                            <a class="add-to-cart-mobile d-sm-none d-block addItemLS btnalert" onclick="addtocart(@item.ItemID,'@item.Title','@item.Image',@item.DiscountedPrice,1);toast('Item Added to Cart', 1); return false;"><i class="ion-ios-cart text-white"></i></a>
-                        }
-                        <div class="product-image Feature-tiem card1">
-                            @if (item.Image == "" || item.Image == null)
-                            {
-                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img src="~/Content/assets/images/NA.png" alt="@item.Title"></a>
-                            }
-                            else
-                            {
-                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.Image" alt="@item.Title"></a>
-                            }
-                            @if (item.HoveredImage == "" || item.HoveredImage == null)
-                            {
-                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img class="img-top" src="~/Content/assets/images/NA.png" alt="@item.Title"></a>
-                            }
-                            else
-                            {
-                                <a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"><img class="img-top" src="@System.Configuration.ConfigurationManager.AppSettings["Image"].ToString()@item.HoveredImage" alt="@item.Title"></a>
-                            }
-                        </div>
-                        <div class="mt-0 mt-sm-3 product-content Feature-tiem-content">
-                            <p><a href="@Url.Action("ProductDetails", "Product", new { ItemID = item.ItemID })"> @item.Title </a></p>
 
-                            <div class="pro_rating d-flex ">
-                                <ul class="product-rating m-auto d-flex">
-                                    @{
-                                        if (item.Stars != null)
-                                        {
-                                            for (int i = 0; i < item.Stars; i++)
-                                            {
-                                                <li><span class="ion-android-star"></span></li>
-                                            }
-                                            for (int i = 0; i < (5 - item.Stars); i++)
-                                            {
-                                                <li><span class="ion-android-star-outline"></span></li>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            <li><span class="ion-android-star-outline"></span></li>
-                                            <li><span class="ion-android-star-outline"></span></li>
-                                            <li><span class="ion-android-star-outline"></span></li>
-                                            <li><span class="ion-android-star-outline"></span></li>
-                                            <li><span class="ion-android-star-outline"></span></li>
-                                        }
-                                    }
-                                </ul>
                             </div>
-                            @if (item.DiscountedPrice == null || item.DiscountedPrice == 0)
-                            {
-                                <div class="price-box">
-                                    <span class="currency-text mx-0 text-default"></span><span class="new-price mx-0">@item.Price</span>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="price-box">
-                                    <span class="currency-text mx-0"></span><span class="old-price mx-0">@item.Price</span>
-                                    <span class="currency-text mx-0 text-default"></span><span class="new-price mx-0">@item.DiscountedPrice</span>
-                                </div>
-                            }
+
                         </div>
                     </div>
+
                 </div>
             }
-            <div class="col-md-12 text-center my-4 pt-lg-5">
-                <a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "RS0",MaxPrice = "RS50000",Searchtext = "",SortID=0})" class="btn btn-default  btn-large" tabindex="0"><span>View All</span></a>
+
+        </div>
+        @*<div class="col-md-12 text-center mt-50">
+            <a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "AED0",MaxPrice = "AED5000",Searchtext = "",SortID=0})" class="btn btn-default theme-btn-custom  btn-medium" tabindex="0"><span>View All</span></a>
+        </div>*@
+    </div>
+</div>
+
+<div style="background:#f4f4f4">
+    <div class="" style="background-image: url(../../Content/assets/images/newsletter/newsletterbg.jpg);border-bottom-right-radius: 100px;">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-6 ">
+                    <img src="~/Content/assets/images/newsletter/newsletterimg.png" />
+                </div>
+                <div class="col-lg-6 my-auto text-light">
+                    <h4 class="text-left text-white">Subscribe Our <span>Newsletter</span></h4>
+                    <p>Subscribe to our newsletter and always upto date about new products and promos.</p>
+                    <div class="input-group mycustom">
+                        <input type="email" class="form-control" placeholder="Enter your email" aria-label="Enter your email" aria-describedby="basic-addon2">
+
+                        <div class="input-group-prepend">
+                            <button onclick="getmail();
+                                    toast('Thank you: You have been successfully subscribed to FlowerCenter. we will keep you updated with our latest news and offers', 1); return false"
+                                    class="btn btn-sm mycustom-button ">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
 <!-- testimonial-area start -->
 @if (ViewBag.Reviews != null)
 {
     if (ViewBag.Reviews.Count > 0)
     {
-        <div class="testimonial-area testimonial-bg bg-gray overly-image pt-40 pb-30" style="background-image:url(../../Content/assets/images/bg-review.jpg)">
-            <div class="container">
-               
-                <div class="row">
-                    <div class="col-lg-8 offset-md-2 col-md-8 col-sm-12">
-                        <div class="testimonial-slider">
-                            @foreach (var item in ViewBag.Reviews)
-                            {
-                                <div class="text-center pb-35">
-                                    <div class="test-cont">
-                                        <img src="~/Content/assets/images/icon/quite.png" alt="">
-                                        <p style="font-size:20px;line-height:24px">@item.Description</p>
+        <div style="background:#1A212A">
+            <div class="testimonial-area testimonial-bg bg-gray overly-image pt-40 pb-30" style="background-color:#f4f4f4;border-bottom-left-radius:100px">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title text-center">
+                                <h5 style="color:#4a5664">What Our Client Says!!</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-8 col-sm-12">
+                            <div class="testimonial-slider">
+                                @foreach (var item in ViewBag.Reviews)
+                                {
+                                    <div>
+                                        <div class="text-center testimonial-slider-box ">
+                                            <div class="pt-15">
+                                                <img src="~/Content/assets/images/testimonialicon.png" alt="">
+                                                <p style="">@item.Description</p>
+                                            </div>
+                                            <br />
+                                            <div class="test-author">
+                                                <h5>@item.Name</h5>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <br />
-                                    <div class="test-author">
-                                        <h5>@item.Name</h5>
-                                    </div>
-                                </div>
-                            }
+                                  
+                                }
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -459,26 +685,6 @@
         </div>
     }
 }
-
-<!-- testimonial-area end -->
-<div class=" bg-newsletter py-5">
-    <div class="container">
-        <div class="row justify-content-center ">
-            <div class="col-lg-4 ">
-                <h4 class="text-newsletter text-center text-white">Subscribe Our <span>Newsletter</span></h4>
-                <div class="input-group mb-3">
-                    <input type="email" class="form-control rounded-0 SubscribeEmail" placeholder="Enter your email">
-                    <div class="input-group-append">
-                        <a onclick="getmail(); toast('Thank you: You have been successfully subscribed to FlowerCenter. we will keep you updated with our latest news and offers', 1); return false" class="btn btn-small rounded-0 btn-newsletter"><i class="ion-paper-airplane newsletter-icon" aria-hidden="true"></i></a>
-                    </div>
-                    <div class="SubscribeEmail-Res"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
 
 @section Scripts {

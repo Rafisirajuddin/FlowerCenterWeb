@@ -163,7 +163,7 @@ else
 
                                     </span>
                                     <span class=" font-weight-bold mobile-text px-2  text-center">@item.ItemTitle x @item.Quantity</span>
-                                    <span class=" font-weight-bold mobile-text px-2 ">Rs. @item.Price</span>
+                                    <span class=" font-weight-bold mobile-text px-2 ">AED. @item.Price</span>
                                 </li>
                                 if (Model.GiftDetail.Count > 0)
                                 {
@@ -186,7 +186,7 @@ else
                                                     <p class="lh-16 small">@gifts.GiftTitle</p>
                                                 </div>
                                                 <div class="px-2 align-self-center ">
-                                                    <p class="badge badge-dark"><span class=" mx-0 text-white"></span>RS. @gifts.Price</p>
+                                                    <p class="badge badge-dark"><span class=" mx-0 text-white"></span>AED. @gifts.Price</p>
                                                 </div>
                                             </div>
                                         </li>
@@ -231,23 +231,23 @@ else
                             </li>
                             <li class="align-items-center d-flex flex-column flex-md-row justify-content-between list-group-item">
                                 Total Amount
-                                <span class="font-weight-bold">Rs. @Model.AmountTotal</span>
+                                <span class="font-weight-bold">AED. @Model.AmountTotal</span>
                             </li>
                             <li class="align-items-center d-flex flex-column flex-md-row justify-content-between list-group-item">
                                 Delivery Amount
-                                <span class="font-weight-bold">Rs. @Model.DeliveryAmount</span>
+                                <span class="font-weight-bold">AED. @Model.DeliveryAmount</span>
                             </li>
                             <li class="align-items-center d-flex flex-column flex-md-row justify-content-between list-group-item">
                                 Tax Amount
-                                <span class="font-weight-bold">Rs. @Model.Tax</span>
+                                <span class="font-weight-bold">AED. @Model.Tax</span>
                             </li>
                             <li class="align-items-center d-flex flex-column flex-md-row justify-content-between list-group-item">
                                 Discount Amount
-                                <span class="font-weight-bold">Rs. @Model.DiscountAmount</span>
+                                <span class="font-weight-bold">AED. @Model.DiscountAmount</span>
                             </li>
                             <li class="align-items-center d-flex flex-column flex-md-row justify-content-between list-group-item bg-light">
                                 Grand Total
-                                <span class="font-weight-bold">Rs. @Model.GrandTotal</span>
+                                <span class="font-weight-bold">AED. @Model.GrandTotal</span>
                             </li>
                         </ul>
                     </div>

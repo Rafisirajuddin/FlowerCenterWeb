@@ -49,8 +49,8 @@ namespace FlowerCenter.Models.BLL
                 p[0] = new SqlParameter("@Category", data.Category == "" ? null : data.Category);
                 p[1] = new SqlParameter("@Color", data.Color == "" ? null : data.Color);
                 p[2] = new SqlParameter("@SubCategory", data.SubCategory == "" ? null : data.SubCategory);
-                p[3] = new SqlParameter("@MinPrice", float.Parse(data.MinPrice.Replace("RS.","").Replace("RS", "")));
-                p[4] = new SqlParameter("@MaxPrice", float.Parse(data.MaxPrice.Replace("RS.", "").Replace("RS", "")));
+                p[3] = new SqlParameter("@MinPrice", float.Parse(data.MinPrice.Replace("AED.", "").Replace("AED", "")));
+                p[4] = new SqlParameter("@MaxPrice", float.Parse(data.MaxPrice.Replace("AED.", "").Replace("AED", "")));
                 p[5] = new SqlParameter("@Searchtxt", data.Searchtxt == "" ? null : data.Searchtxt);
                 p[6] = new SqlParameter("@SortID", data.SortID);
                 _ds = (new DBHelper().GetDatasetFromSP)("sp_filterProduct",p);

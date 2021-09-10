@@ -346,12 +346,13 @@ var testimonialSlider = $('.testimonial-slider');
 testimonialSlider.slick({
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 7000,
-    dots: true,
+    autoplaySpeed: 5000,
+    dots: false,
     pauseOnFocus: false,
     pauseOnHover: false,
     infinite: true,
-    slidesToShow: 1,
+
+    slidesToShow: 3,
     slidesToScoll: 1,
     prevArrow: '<button type="button" class="slick-prev"> <i class="ion-ios-arrow-thin-left"></i> </button>',
     nextArrow: '<button type="button" class="slick-next"><i class="ion-ios-arrow-thin-right"></i></button>'
@@ -454,11 +455,11 @@ $('.horizantal-product-active a').on('click', function () {
 $( "#price-slider" ).slider({
    range: true,
    min: 0,
-   max: 50000,
-   values: [ 0, 50000 ],
+    max: 5000,
+    values: [0, 5000 ],
    slide: function( event, ui ) {
        $(".min-price").val(currency + ui.values[ 0 ] );
-        $( ".max-price" ).val('RS' + ui.values[ 1 ] );
+       $(".max-price").val('AED' + ui.values[ 1 ] );
      }
 });
     $(".min-price").val(currency + $( "#price-slider" ).slider( "values", 0 ));   
@@ -468,8 +469,8 @@ $( "#price-slider" ).slider({
     $("#price-slider1").slider({
         range: true,
         min: 0,
-        max: 50000,
-        values: [0, 50000],
+        max: 5000,
+        values: [0, 5000],
         slide: function (event, ui) {
             $(".min-price").val(currency + ui.values[0]);
             $(".max-price").val(currency + ui.values[1]);
@@ -481,8 +482,8 @@ $( "#price-slider" ).slider({
     $("#price-slider-home").slider({
         range: true,
         min: 0,
-        max: 50000,
-        values: [0, 50000],
+        max: 5000,
+        values: [0, 5000],
         slide: function (event, ui) {
             $("#min-price-home").val(currency + ui.values[0]);
             $("#max-price-home").val(currency + ui.values[1]);

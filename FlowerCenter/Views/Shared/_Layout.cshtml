@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@ViewBag.Title - Karachi Flora</title>
+    <title>@ViewBag.Title - Flower Center</title>
     <meta name="robots" content="noindex, follow" />
     <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -35,28 +35,63 @@
                 width: 100% !important;
             }
         }
+        .breadcrumb-list li, .breadcrumb-title, .breadcrumb-list a {
+            color: #ffffff !important;
+        }
+        .main-menu-area ul > li > a {
+            font-size: 11px;
+        }
+        .theme-btn-custom {
+            color: white !important;
+            font-size: 14px !important;
+            background-color: #ec5195 !important;
+            border-color: white;
+            border-radius: 25px;
+            padding: 12px 35px !important;
+        }
+        .footer-top {
+            background: #43525c;
+        }
+
+        .newsletter-icon {
+            color: #ffffff;
+        }
+
+        .btn-newsletter {
+            background: #673ab7;
+            border: 1px solid #673ab7;
+        }
+
+        .greybg-theme {
+            background-color: #4a5664 !important;
+        }
+
+        @@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+            .hero-slider-one .single-slide {
+                height: 461px;
+            }
+        }
     </style>
 
 
 </head>
 <body>
     <header class="fl-header">
-
         <!-- Header Top Start -->
-        <div class="header-top-area ">
+        <div class="header-top-area greybg-theme">
             <div class="container container-topheader">
                 <div class="row">
                     <div class="col-lg-3 d-none d-lg-block">
                         <div class="social-top">
                             <ul>
-                                <li id="facebook" class=""><a href="https://www.facebook.com/khansflowers/" target="_blank"><i class="ion-social-facebook"></i></a></li>
-                                <li id="instagram" class=""><a href="https://www.instagram.com/FlowerCenter/?hl=en" target="_blank"><i class="ion-social-instagram-outline"></i></a></li>
-                                <li id="twitter" class=""><a href=""><i class="ion-social-twitter-outline" target="_blank"></i></a></li>
+                                <li id="facebook" class="mr-10" style=" background: white; padding: 2px 11px; border-radius: 30px;"><a href="https://www.facebook.com/khansflowers/" target="_blank"><i class="ion-social-facebook"></i></a></li>
+                                <li id="instagram" class="mr-10" style=" background: white; padding: 2px 9px; border-radius: 30px;"><a href="https://www.instagram.com/FlowerCenter/?hl=en" target="_blank"><i class="ion-social-instagram-outline"></i></a></li>
+                                <li id="twitter" class="mr-10" style=" background: white; padding: 2px 7px; border-radius: 30px;"><a href=""><i class="ion-social-twitter-outline" target="_blank"></i></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6 align-self-center text-center">
-                        <p class="m-0 small text-uppercase" id="TopHeaderText"></p>
+                        <p class="m-0 small text-uppercase text-light" id="TopHeaderText"></p>
                     </div>
                     <div class="col-lg-3 text-center">
                         <div class="social-top">
@@ -69,7 +104,7 @@
                                 </li>
 
                                 <li id="" class="">
-                                    <img src="~/Content/assets/images/logo/easypaisa.png" width="50px" />
+                                    <img src="~/Content/assets/images/logo/paypal.png" width="50px" />
                                 </li>
                             </ul>
                         </div>
@@ -97,17 +132,21 @@
                     <div class="col-lg-2 col-md-8 col-7">
                         <div class="right-blok-box d-flex">
                             <div class="search-wrap">
-                                <a href="#" class="trigger-search"><i class="ion-ios-search-strong"></i></a>
+                                <a href="#" class="trigger-search">
+                                    <img src="~/Content/assets/images/icon/search.png" />
+                                </a>
                             </div>
-
                             <div class="user-wrap">
-                               
-                                <a href="~/product/wishlist"><i class="ion-android-favorite-outline"></i></a>
+
+                                <a href="~/product/wishlist">
+                                    <img src="~/Content/assets/images/icon/wishlist.png" />
+                                </a>
                             </div>
 
                             <div class="shopping-cart-wrap">
                                 <a href="~/order/cart">
-                                    <img src="~/Content/assets/images/shopping-cart.png" width="23px" /> <span id="cart-total">0</span>
+                                    <img src="~/Content/assets/images/icon/cart.png" />
+                                    <span id="cart-total">0</span>
                                 </a>
                                 <ul class="mini-cart head-cart ">
                                 </ul>
@@ -116,7 +155,7 @@
 
                                 @if (Session["CustomerName"] != null)
                                 {
-                                    <a href="" dropdown-toggle" data-toggle="dropdown"><i class="ion-ios-contact"></i></a>
+                                    <a href="" dropdown-toggle" data-toggle="dropdown"> <img src="~/Content/assets/images/icon/user.png" /></a>
                                     <div class="dropdown-menu alignment p-0 mt-0">
                                         <a class="dropdown-item border-bottom text-center" style="font-size:12px;" href="#"><span class="font-weight-bold">Hi!</span> @Session["CustomerName"]</a>
                                         <a href="~/Order/Myorders" class="about-bg border-bottom dropdown-item font-weight-bold py-4 text-center" style="font-size:12px;">My Orders</a>
@@ -125,7 +164,9 @@
                                 }
                                 else
                                 {
-                                    <a href="~/account/Login_Register?id=1"><i class="ion-ios-contact"></i></a>
+                                    <a href="~/account/Login_Register?id=1">
+                                        <img src="~/Content/assets/images/icon/user.png" />
+                                    </a>
                                 }
 
                             </div>
@@ -189,10 +230,10 @@
                                 <div class="off-canvas-contact-widget">
                                     <ul>
                                         <li>
-                                            <a href="#">03002920640 </a>
+                                            <a href="tel:+971552525823"> +971 552525823</a>
                                         </li>
                                         <li>
-                                            <a href="#">krachiflora@gmail.com</a>
+                                            <a href="mailto:flowercenter.uae@gmail.com">flowercenter.uae@gmail.com</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -216,7 +257,7 @@
                                         <li><a href="~/home/contact">Contact</a></li>
                                         <li><a href="~/home/about">About Us</a></li>
 
-                                        <li><a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "RS0",MaxPrice = "RS50000",Searchtext = "",SortID=0})">Shop</a></li>
+                                        <li><a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "AED0",MaxPrice = "AED5000",Searchtext = "",SortID=0})">Shop</a></li>
                                         @if (Session["CustomerName"] != null)
                                         {
                                             <li><a href="~/account/logout">Logout</a></li>
@@ -245,20 +286,23 @@
         @RenderBody()
     </div>
 
-    <footer>
-        <div class="footer-top section-pb pt-20 pb-20">
+    <footer style="background-image:url(../../Content/assets/images/bgfooter.jpg)">
+        <div class=" pt-20 pb-40 text-light">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 col-md-12">
                         <div class="widget-footer mt-20">
                             <div class="footer-logo">
-                                <a href="~/home/index"><img src="~/Content/assets/images/logo/logo.svg" style=" width: 130px;" alt=""></a>
+                                <a href="~/home/index"><img src="~/Content/assets/images/logo/logo-white.svg" style=" width: 130px;" alt=""></a>
                             </div>
-                            <p>We are the distributors of world best and beautiful fragrance flowers, deals in variety of different flowers. We import fresh flowers from world best supplier. Good service with quality gifts attract more customers.</p>
+                            <p>
+                                Flower Center was established in the UAE in 2012 when we started importing artificial flowers and distributing them in the
+                                market. In year 2015, we opened our first branch for direct retail selling followed by a second branch.
+                            </p>
                             <div class="newsletter-footer">
                                 <input class="SubscribeEmail" type="text" placeholder="You Email">
                                 <div class="subscribe-button">
-                                    <button onclick="getmail(); toast('Thank you: You have been successfully subscribed to Karachi Flora. we will keep you updated with our latest news and offers', 1); return false; this.value = '';" class="subscribe-btn"><span>Subscribe</span></button>
+                                    <button onclick="getmail(); toast('Thank you: You have been successfully subscribed to Flower Center. we will keep you updated with our latest news and offers', 1); return false; this.value = '';" class="subscribe-btn"><span>Subscribe</span></button>
                                 </div>
                                 <div class="SubscribeEmail-Res"></div>
                             </div>
@@ -267,12 +311,12 @@
                     <div class="offset-lg-1"></div>
                     <div class="col-lg-2 col-md-6">
                         <div class="widget-footer mt-30">
-                            <h6 class="title-widget">QUICK LINK</h6>
+                            <h6 class="title-widget text-light">QUICK LINK</h6>
                             <ul class="footer-list">
                                 <li><a href="~/home/index">Home</a></li>
                                 <li><a href="~/home/contact">Contact</a></li>
                                 <li><a href="~/home/about">About Us</a></li>
-                                <li><a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "RS0",MaxPrice = "RS50000",Searchtext = "",SortID=0})">Shop</a></li>
+                                <li><a href="@Url.Action("shop", "shop", new { Category = "", CategoryIDs = "", SubCategoryIDs = "",ColorIDs = "",MinPrice = "AED0",MaxPrice = "AED5000",Searchtext = "",SortID=0})">Shop</a></li>
                                 @if (Session["CustomerName"] != null)
                                 {
                                     <li><a href="~/account/logout">Logout</a></li>
@@ -288,22 +332,20 @@
                     <div class="offset-lg-1"></div>
                     <div class="col-lg-4 col-md-6">
                         <div class="widget-footer mt-30">
-                            <h6 class="title-widget">QUICK CONTACT</h6>
+                            <h6 class="title-widget text-light">QUICK CONTACT</h6>
                             <ul class="footer-contact">
                                 <li>
                                     <label><span>Phone</span></label>
-                                    <a href="tel:03002920640"><span>03002920640 </span></a>
+                                    <a href="tel:+971524315121"><span>+971524315121 </span></a>
                                 </li>
                                 <li>
                                     <label><span>Email</span></label>
-                                    <a href="mailto:krachiflora@gmail.com">krachiflora@gmail.com</a>
+                                    <a href="mailto:flowercenter.uae@gmail.com">flowercenter.uae@gmail.com</a>
                                 </li>
                                 <li>
                                     <label><span>Address</span></label>
                                     <span>
-                                        Karachi Flora, street 32nd building 12 c 3rd floor
-                                        Phase V Saba Commercial Area Defence V
-                                        Defence Housing Authority, Karachi,75500 Sindh, Pakistan
+                                        SHARJAH, UAE
                                     </span>
                                 </li>
                             </ul>
@@ -319,15 +361,15 @@
                 <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
             </div>
             <div class="toast-body">
-                New Item added to cart
+                Item added to cart
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="background-color: transparent; border-top:1px solid #ffffff">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="copy-right-text text-center">
-                            <p>Copyright &copy; Karachi Flora<a href="http://airtechsolutions.pk/" class="text-default">(Powered By Airtech Solutions)</a> </p>
+                        <div class="copy-right-text text-center text-light">
+                            <p>Copyright &copy; Flower Center UAE, ALL RIGHTS REGISTERED</p>
                         </div>
                     </div>
                 </div>
@@ -372,7 +414,7 @@
     <script type="text/javascript">
         (function () {
             var options = {
-                whatsapp: "+923002920640", // WhatsApp number
+                whatsapp: "+971524315121", // WhatsApp number
                 call_to_action: "Message us", // Call to action
                 position: "right", // Position may be 'right' or 'left'
                 pre_filled_message: "How can i help you", // WhatsApp pre-filled message
@@ -434,7 +476,7 @@
             var Searchtxt = $("#search").val();
 
 
-            window.location.href = '/shop/shop?Category=""&CategoryIDs=' + '' + '&SubCategoryIDs=' + "" + '&ColorIDs=' + '' + '&MinPrice=' + 'RS0' + '&MaxPrice=' + 'RS50000' + '&Searchtext=' + Searchtxt + '&SortID=' + 0 + '';
+            window.location.href = '/shop/shop?Category=""&CategoryIDs=' + '' + '&SubCategoryIDs=' + "" + '&ColorIDs=' + '' + '&MinPrice=' + 'AED0' + '&MaxPrice=' + 'AED5000' + '&Searchtext=' + Searchtxt + '&SortID=' + 0 + '';
         }
 
     </script>

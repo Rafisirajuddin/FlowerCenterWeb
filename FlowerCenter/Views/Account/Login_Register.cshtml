@@ -3,6 +3,12 @@
     ViewBag.Title = "Login_Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .btn::before, .btn-2::before {
+        
+        background-color: #FBA5CA;
+    }
+</style>
 @if (ViewBag.Banner.Count > 0)
 {
     <div class="breadcrumb-area section-ptb" style="background: url(../../Content/@ViewBag.Banner[0].Image) repeat scroll 0 0;background-size:cover;">
